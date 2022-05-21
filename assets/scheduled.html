@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salarium Scheduler</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <nav class="col teal darken-2 s12 text-center">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Salarium Scheduler</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="valign-wrapper text-center col s12 center-align">
+          <h2 class="center-align" id="status" style="width: 100%">Waiting</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align scale-transition scale-out">
+          <h5 class="center-align">Time In:</h5>
+          <h5 class="center-align" id="timein">10:00</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align scale-transition scale-out">
+          <h5 class="center-align">Time Out:</h5>
+          <h5 class="center-align" id="timeout">19:00</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align scale-transition scale-out">
+          <button class="btn teal darken-2 hoverable">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="page-footer teal darken-2"
+      style="position: absolute; bottom: 0; width: 100vw"
+    >
+      <div class="footer-copyright teal darken-3">
+        <div class="container">
+          © 2022 Salarium Scheduler
+          <a
+            class="grey-text text-lighten-4 right"
+            href="https://romanaugusto.tk"
+            target="_blank"
+            >Roman Cabalum</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./scheduled.js"></script>
+  </body>
+</html>

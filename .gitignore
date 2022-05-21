@@ -1,0 +1,12 @@
+#node
+/node_modules
+.tool-versions
+
+#python
+/python/log-me-in/env
+/python/log-me-in/userdata/data.json
+/python/log-me-in/userdata/_pycache_
+/geckodriver.log
+
+#osx
+.DS_Store

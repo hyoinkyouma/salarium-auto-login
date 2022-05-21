@@ -1,0 +1,30 @@
+{
+  "name": "salarium-scheduler",
+  "version": "0.8.1",
+  "description": "A scheduler app for automatically logging into salarium",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app:dir": "npx electron-builder --dir",
+    "app:dist": "npx electron-builder",
+    "postinstall": "npx electron-builder install-app-deps"
+  },
+  "author": "Roman",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^18.2.4",
+    "electron-rebuild": "^3.2.7",
+    "electron-build": "^0.0.3"
+  },
+  "dependencies": {
+    "python-shell": "^3.0.1"
+  },
+  "build": {
+    "productName": "Salarium Scheduler",
+    "appId": "Salarium Scheduler",
+    "asar": false,
+    "mac": {
+      "category": "utils"
+    }
+  }
+}

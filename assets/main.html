@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salarium Scheduler</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <nav class="col teal darken-2 s12 text-center">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Salarium Scheduler</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align">
+          <h2>Log-In</h2>
+        </div>
+      </div>
+      <!--time-in-->
+      <div class="row">
+        <div class="col s12 center-align">
+          <div class="input-field col s6 offset-s3">
+            <input id="time-in" type="text" class="validate" />
+            <label for="time-in">Log-In Time (<em>HH:MM</em>)</label>
+          </div>
+        </div>
+      </div>
+      <!--time-out-->
+      <div class="row">
+        <div class="col s12 center-align">
+          <div class="input-field col s6 offset-s3">
+            <input id="time-out" type="text" class="validate" />
+            <label for="time-out">Log-Out Time (<em>HH:MM</em>)</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align">
+          <button class="btn teal darken-2" id="btn-login">Schedule Login</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer teal darken-2" style="position: absolute; bottom:0; width: 100vw;">
+      <div class="footer-copyright teal darken-3">
+            <div class="container">
+            © 2022 Salarium Scheduler
+            <a class="grey-text text-lighten-4 right" href="https://romanaugusto.tk" target="_blank">Roman Cabalum</a>
+            </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        const loginBtn = document.getElementById('btn-login')
+        const timeIn = document.getElementById('time-in')
+        const timeOut= document.getElementById('time-out')
+
+        //animation
+        loginBtn.onmousedown = () => {
+            const values = []
+            document.querySelectorAll('input').forEach(inputs => values.push(inputs.value))
+            loginBtn.style.transform = "scale(.95)"
+            window.localStorage.setItem("setTime", values)
+            window.electronAPI.runPy(values)
+            window.location = 'scheduled.html'
+        }
+        loginBtn.onmouseup = () => {
+            loginBtn.style.transform = "scale(1)"
+        }
+
+    </script>
+  </body>
+</html>
