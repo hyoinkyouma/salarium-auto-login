@@ -19,6 +19,8 @@ document.querySelectorAll(".scale-out").forEach(async (elem) => {
 const btnCancel = document.querySelector(".btn");
 btnCancel.onclick = () => {
   window.restart.seppuku();
+  window.localStorage.clear();
+  window.location = "main.html";
 };
 
 const eLoop = async () => {
@@ -46,6 +48,9 @@ const eLoop = async () => {
     document.getElementById("status").textContent = "Logging in...";
     await new Promise((r) => setTimeout(r, 2000));
     document.getElementById("status").textContent = "Done";
+    timein.style.transform = "scale(1)";
+    timeout.style.transform = "scale(1)";
+    btnCancel.textContent = "Go Back";
     clearInterval(id);
   }
 };

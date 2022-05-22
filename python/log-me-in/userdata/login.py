@@ -6,7 +6,7 @@ import os
 import sys
 
 def getUserData ():
-    data = sys.argv[3] + '/log-me-in/userdata/data.json'
+    data = sys.argv[3] + '\\log-me-in\\userdata\\data.json'
     with open (data) as f:
         data = json.load(f)
     return data
@@ -15,7 +15,7 @@ def login ():
     user = getUserData()
     options = Options()
     options.set_preference('profile', './')
-    service = Service(executable_path= sys.argv[3] + '/log-me-in/userdata/bin/geckodriver', log_path=os.devnull)
+    service = Service(executable_path= sys.argv[3] + '\\log-me-in\\userdata\\bin\\geckodriver-win.exe', log_path=os.devnull)
 
     email = user["email"]
     passkey = user ["password"]
@@ -48,3 +48,4 @@ def login ():
 def main ():
     print('works')
     login()
+login()

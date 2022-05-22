@@ -7,7 +7,7 @@ function handleTimeInOut(timein, timeout) {
   let options = {
     scriptPath: path.join(__dirname, "./log-me-in/"),
     args: [timein, timeout, dir],
-    pythonPath: path.join(__dirname, "../dev/bin/python3.10"),
+    pythonPath: path.join(__dirname, "../win-dev/scripts/python.exe"),
   };
   py = PythonShell.run("_scheduler.py", options, function (err, results) {
     if (err) throw err;

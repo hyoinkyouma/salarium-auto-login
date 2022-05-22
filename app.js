@@ -11,18 +11,15 @@ process.env.NODE_ENV = "production";
 let mainWindow;
 
 //handler for python call
-const pyReady = async (e, values) => {
+const pyReady = (e, values) => {
   const timein = values[0];
   const timeout = values[1];
-  const result = await handleTimeInOut(timein, timeout);
+  const result = handleTimeInOut(timein, timeout);
   console.log(result);
 };
 //handler for cancel/restart button
 const seppuku = (e) => {
-  console.log("restarting app");
   killPy();
-  app.relaunch();
-  app.exit();
 };
 
 // listen for app to be ready
