@@ -26,25 +26,9 @@ btnCancel.onclick = () => {
 const eLoop = async () => {
   const date = new Date();
   const currentHours = date.getHours();
-  const currentMinutes = date.getMinutes();
-  const currentTime = currentHours + currentMinutes / 60;
-  if (timeinInt > currentTime) {
-    timein.style.transform = "scale(2)";
-    timeout.style.transform = "scale(1)";
-  } else if (timeoutInt > currentTime) {
-    timein.style.transform = "scale(1)";
-    timeout.style.transform = "scale(2)";
-  } else {
-    timein.style.transform = "scale(2)";
-    timeout.style.transform = "scale(1)";
-  }
-  if (timeinInt === currentTime) {
-    document.getElementById("status").textContent = "Logging in...";
-    await new Promise((r) => setTimeout(r, 2000));
-    document.getElementById("status").textContent = "Waiting";
-    await new Promise((r) => setTimeout(r, 58000));
-  }
-  if (timeoutInt === currentTime) {
+  const currentMinutes = parseFloat(date.getMinutes() / 60);
+  const currentTime = currentHours + currentMinutes;
+  if (timeoutInt <= currentTime) {
     document.getElementById("status").textContent = "Logging in...";
     await new Promise((r) => setTimeout(r, 2000));
     document.getElementById("status").textContent = "Done";
@@ -52,6 +36,17 @@ const eLoop = async () => {
     timeout.style.transform = "scale(1)";
     btnCancel.textContent = "Go Back";
     clearInterval(id);
+    window.localStorage.clear();
+  } else if (timeinInt === currentTime) {
+    document.getElementById("status").textContent = "Logging in...";
+  } else if (timeinInt > currentTime) {
+    document.getElementById("status").textContent = "Waiting";
+    timein.style.transform = "scale(2)";
+    timeout.style.transform = "scale(1)";
+  } else {
+    document.getElementById("status").textContent = "Waiting";
+    timein.style.transform = "scale(1)";
+    timeout.style.transform = "scale(2)";
   }
 };
 

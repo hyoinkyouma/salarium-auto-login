@@ -11,10 +11,10 @@ process.env.NODE_ENV = "production";
 let mainWindow;
 
 //handler for python call
-const pyReady = (e, values) => {
+const pyReady = async (e, values) => {
   const timein = values[0];
   const timeout = values[1];
-  const result = handleTimeInOut(timein, timeout);
+  const result = await handleTimeInOut(timein, timeout);
   console.log(result);
 };
 //handler for cancel/restart button
