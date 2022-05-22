@@ -1,7 +1,7 @@
 #node
 /node_modules
 .tool-versions
-
+/dist/
 #python
 /python/log-me-in/env
 /python/log-me-in/userdata/data.json
