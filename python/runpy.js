@@ -2,7 +2,7 @@ const { PythonShell } = require("python-shell");
 const path = require("path");
 
 let py;
-function handleTimeInOut(timein, timeout) {
+async function handleTimeInOut(timein, timeout) {
   let dir = __dirname;
   let options = {
     scriptPath: path.join(__dirname, "./log-me-in/"),

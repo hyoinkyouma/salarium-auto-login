@@ -39,7 +39,7 @@ def login ():
     driver.implicitly_wait(10)
     driver.get(urlDash)
     time = driver.find_element_by_id('time_btn')
-    time.click()
+   # time.click()
     driver.quit()
 
     
@@ -48,3 +48,4 @@ def login ():
 def main ():
     print('works')
     login()
+login()
