@@ -8,8 +8,6 @@ const { app, BrowserWindow, Menu, ipcMain } = electron;
 //SET ENV
 process.env.NODE_ENV = "production";
 
-let mainWindow;
-
 //handler for python call
 const pyReady = async (e, values) => {
   const timein = values[0];
@@ -29,7 +27,7 @@ app.on("ready", function () {
   ipcMain.on("run-py", pyReady);
   ipcMain.on("seppukuMain", seppuku);
 
-  mainWindow = new BrowserWindow({
+  let mainWindow = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, "./preload.js"),
@@ -53,8 +51,6 @@ app.on("ready", function () {
   //insert
   Menu.setApplicationMenu(mainMenu);
 });
-
-//remove menu when out of focus
 
 //mainMenu
 const menuTemplate = [

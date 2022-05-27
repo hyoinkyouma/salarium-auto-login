@@ -2,7 +2,7 @@ const { PythonShell } = require("python-shell");
 const path = require("path");
 
 let py;
-async function handleTimeInOut(timein, timeout) {
+function handleTimeInOut(timein, timeout) {
   let dir = __dirname;
   let options = {
     scriptPath: path.join(__dirname, "./log-me-in/"),
@@ -14,7 +14,7 @@ async function handleTimeInOut(timein, timeout) {
     // results is an array consisting of messages collected during execution
     console.log(results);
   });
-  return await py;
+  return py;
 }
 
 const killPy = () => {
