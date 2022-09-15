@@ -30,7 +30,6 @@ def login ():
         
     print('Executing login Script')
 
-
     #login
     driver.execute_script(f'const inputArr = document.querySelectorAll(".form-control"); inputArr[0].value = "{email}";inputArr[1].value = "{passkey}"')
             
@@ -48,4 +47,3 @@ def login ():
 def main ():
     print('works')
     login()
-login()
